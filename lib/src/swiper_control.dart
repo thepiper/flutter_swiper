@@ -36,10 +36,20 @@ class SwiperControl extends SwiperPlugin {
     return new GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
+        bool next = config.activeIndex < config.itemCount - 1;
+        bool prev = config.activeIndex > 0;
         if (previous) {
-          config.controller.previous(animation: true);
+          if (!prev) {
+            // leave empty
+          } else {
+            config.controller.previous(animation: true);
+          }
         } else {
-          config.controller.next(animation: true);
+          if (!next) {
+            // leave empty
+          } else {
+            config.controller.next(animation: true);
+          }
         }
       },
       child: Padding(
@@ -78,7 +88,7 @@ class SwiperControl extends SwiperPlugin {
       child = Row(
         key: key,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           buildButton(config, prevColor, iconPrevious, 0, true),
           buildButton(config, nextColor, iconNext, 0, false)

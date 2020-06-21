@@ -251,7 +251,7 @@ class SwiperPagination extends SwiperPlugin {
   static const SwiperPlugin dots = const DotSwiperPaginationBuilder();
 
   /// fraction style pagination
-  static const SwiperPlugin fraction = const FractionPaginationBuilder();
+  static const SwiperPlugin fraction = const FractionPaginationBuilder(color: Colors.black);
 
   static const SwiperPlugin rect = const RectSwiperPaginationBuilder();
 
